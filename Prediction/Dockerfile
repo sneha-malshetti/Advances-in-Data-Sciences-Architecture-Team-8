@@ -1,26 +1,17 @@
-#FROM ipython/scipyserver
-FROM python:3
+# our R base image
+FROM r-base
 
-RUN mkdir -p /usr/src/DockerImages
-WORKDIR /usr/src/DockerImages
 
-COPY *.py *.json *.sh  /usr/src/DockerImages/
+COPY *.R *.txt *.sh  /usr/src/Prediction/
+WORKDIR /usr/src/Prediction
 
-RUN pip install jupyter notebook
-RUN pip install boto3
-RUN pip install requests
-RUN pip install boto
-RUN pip install scipy
+CMD ["Rscript", "Prediction.R"]
 
-RUN pip install numpy
-RUN pip install matplotlib
-RUN pip install pandas
-RUN pip install ipython
-
+RUN mkdir -p /usr/src/Prediction
 
 
 ADD run.sh /
 #RUN chmod +x /run.sh
 CMD ["./run.sh"]
 ENTRYPOINT ["/run.sh"]
-#ENTRYPOINT ["python", "datadownload1_1.py"]
+ENTRYPOINT ["Rscript", "Prediction.R"]
