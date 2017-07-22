@@ -165,9 +165,10 @@ names(F)
 F$rss
 F$adjr2
 coef(regfit.fwd,11)
-accuracy(reg.summary,TrainingData$InterestRate)
-plot(F$adjr2)
-plot(F$rss)
+accuracy(F,TrainingData$InterestRate)
+plot(F$adjr2,type="line")
+
+plot(F$rss, type="line")
 
 #Backward Selection
 regfit.bwd=regsubsets(TrainingData$InterestRate~TrainingData$CreditScore+TrainingData$MaturityDate+TrainingData$MIpercentage +  
@@ -185,31 +186,22 @@ plot(B$rss)
 
 
 #-------------------random Fores
+install.packages("neuralnet")
 library(neuralnet)
 
+ibrary (neuralnet)
+neuralnet <- neuralnet(TrainingData$InterestRate~TrainingData$CreditScore+TrainingData$MaturityDate+TrainingData$MIpercentage +  
+                         TrainingData$NoOfUnits+TrainingData$CLTV+TrainingData$DTIratio+
+                         TrainingData$UPB+TrainingData$LoanTerm+TrainingData$NoOfBorrowers, 
+                       data=TrainingData, hidden=3,  threshold = 0.01, linear.output=FALSE )
 
-
-
-
-net.sqrt<-neuralnet(TrainingData$InterestRate~TrainingData$CreditScore+TrainingData$MaturityDate+TrainingData$MIpercentage +  
-                      TrainingData$MSA+TrainingData$NoOfUnits+TrainingData$CLTV+TrainingData$DTIratio+TrainingData$UPB+TrainingData$LTV   
-                    +TrainingData$PostalCode+TrainingData$LoanTerm+TrainingData$NoOfBorrowers, 
-                    data=TrainingData,hidden=5,3, threshold=0.01)
-
-
-
-
-print(net.sqrt)
-plot(net.sqrt)
-
-names(test)
-
-net.result
+neuralnet$result.matrix
+plot(neuralnet)
 
 
 
 #----------------------
-
+install.packages("randomForest")
 library(randomForest)
 
 TrainingData <- randomForest(TrainingData$InterestRate~TrainingData$CreditScore+TrainingData$MaturityDate+TrainingData$MIpercentage +  
