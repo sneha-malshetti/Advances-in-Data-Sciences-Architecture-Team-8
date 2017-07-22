@@ -1,17 +1,17 @@
 #Introduction to R 
 #Introduction to R 
 # Read the data
-Data <- read.table(file="C:/Users/singh/Desktop/midterm/Part2/historical_data1_Q12005.txt", header=FALSE, sep="|") 
-test<-read.table(file = "C:/Users/singh/Desktop/midterm/Part2/historical_data1_Q22005.txt", header=FALSE, sep="|")
+Data <- read.table("historical_data1_Q12005.txt", header=FALSE, sep="|") 
+test<-read.table("historical_data1_Q22005.txt", header=FALSE, sep="|")
 
 origclass <- c('numeric','numeric','character', 'numeric', 'numeric', 'numeric', 'numeric',  
                 'character','numeric','numeric','numeric','numeric','numeric','character',
-                'character','character','character', 'character','character','numeric','character',
+                'character','character','character', 'character','character','character','character',
                 'numeric', 'numeric','character','character','character') 
 #origfile_Qnyyyy <- read.table("historical_data1_Qnyyyy.txt", sep="|", header=FALSE, colClasses=origclass ) 
-Data <- read.table(file="C:/Users/singh/Desktop/midterm/Part2/historical_data1_Q12005.txt", header=FALSE, sep="|",
+Data <- read.table("historical_data1_Q12005.txt", header=FALSE, sep="|",
                      colClasses=origclass) 
-test<-read.table(file="C:/Users/singh/Desktop/midterm/Part2/historical_data1_Q22005.txt", header=FALSE, sep="|",
+test<-read.table("historical_data1_Q22005.txt", header=FALSE, sep="|",
                  colClasses=origclass)
 
 #Define Columns
