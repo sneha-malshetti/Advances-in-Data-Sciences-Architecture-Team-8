@@ -2,10 +2,15 @@
 The repository consists of the following :
 
 - Data Ingestion file -
-- Data Wrangling file - 
-- Exploratory Data Analysis file - 
+- Data Wrangling file 
+- Exploratory Data Analysis file 
 - config.json file with passwords 
-- Dockerhub files 
+- Dockerhub files :
+docker pull megha8/midterm
+
+docker pull megha8/datawranglemid
+
+docker pull megha8/predictionmidterm
 - the wrangled csv file 
 - the Final Report on the entire detailed procedure for the Mid-Term Project
 
