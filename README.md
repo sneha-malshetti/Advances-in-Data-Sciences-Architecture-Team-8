@@ -1,4 +1,4 @@
-# Advances in Data Science/Architecture - Midterm - Team-8
+# Loan Delinquency Prediction- ADS Midterm
 The repository consists of the following :
 
 - Data Ingestion file -
